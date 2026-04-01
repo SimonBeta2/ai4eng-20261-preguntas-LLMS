@@ -1,0 +1,26 @@
+Problema:
+Estás trabajando con una clínica que quiere predecir si un paciente tiene riesgo de enfermedad cardiovascular basándose en variables como presión arterial, colesterol, edad, etc.
+
+El objetivo es construir un modelo rápido para evaluar el desempeño inicial del sistema.
+
+Tu misión
+
+Implementar la función def evaluar_modelo_riesgo(df, target_col):
+
+Argumentos
+df → DataFrame con variables numéricas + target
+target_col → nombre de la columna objetivo (0 = no riesgo, 1 = riesgo)
+
+Debe hacer
+-Separar X e y
+-Dividir datos:
+  80% entrenamiento
+  20% prueba
+-Entrenar un modelo:
+  LogisticRegression
+-Evaluar el modelo
+
+Retorna
+Una tupla: (accuracy, coeficientes)
+accuracy → float
+coeficientes → numpy array

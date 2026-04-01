@@ -1,0 +1,20 @@
+Problema:
+Trabajas en una startup de comercio electrónico en Medellín.
+Han detectado que el sistema de ventas tiene errores: algunos productos aparecen con precios negativos o cantidades inválidas debido a fallos en la integración con proveedores.
+
+Tu jefe necesita un reporte confiable del ingreso por categoría para tomar decisiones de inventario.
+Tu misión, implementar la función: def calcular_ingresos_validos(df)
+
+Argumentos:
+
+-df → DataFrame con columnas: producto(str), precio(float), cantidad(int), categoria(str)
+
+Debe hacer: eliminar filas donde:
+precio <= 0
+cantidad <= 0
+Crear columna: ingreso = precio * cantidad
+Agrupar por categoría y calcular ingreso total por categoría
+
+Retorna:
+Un DataFrame de pandas con columnas:
+categoría y ingreso_total
