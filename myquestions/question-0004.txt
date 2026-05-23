@@ -1,0 +1,28 @@
+Problema:
+Trabajas en una empresa de marketing digital que quiere segmentar usuarios para campañas personalizadas.
+
+Tienen datos como:
+
+gasto mensual
+número de compras
+tiempo en la app
+
+Pero no tienen etiquetas (no saben qué tipo de cliente es cada uno).
+
+Tu misión
+
+Implementar la función def segmentar_clientes(df, n_clusters):
+
+Argumentos:
+df → DataFrame con variables numéricas
+n_clusters → número de segmentos
+Debe hacer:
+-Aplicar KMeans
+-Ajustar el modelo a los datos
+-Obtener clusters
+
+Retorna:
+Una tupla:
+(labels, centroides)
+labels → numpy array con cluster asignado por cliente
+centroides → numpy array con los centros de cada cluster

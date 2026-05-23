@@ -1,0 +1,16 @@
+Eres analista en una universidad.
+Se quiere asignar becas a los mejores estudiantes, pero los datos tienen errores: hay notas fuera del rango válido (0 a 5).
+Necesitan un ranking justo dentro de cada grupo académico.
+Tu misión, implementar la función def generar_ranking_estudiantes(df)
+
+Argumentos: 
+-df → DataFrame con:nombre (str), nota (float), grupo (str)
+
+Debe hacer:
+Eliminar estudiantes con: nota < 0 o nota > 5
+Ordenar por: grupo ascendente, nota descendente
+
+Crear ranking dentro de cada grupo:
+Mejor nota = 1
+
+Retorna un DataFrame de pandas con una nueva columna: ranking
