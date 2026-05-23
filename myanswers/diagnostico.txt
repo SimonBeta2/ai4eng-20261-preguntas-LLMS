@@ -1,0 +1,39 @@
+DIAGNÓSTICO DE ERRORES EN EVALUACIÓN AUTOMÁTICA
+
+EJERCICIO: detectar_inestabilidad_fisiologica (answer-0530.py)
+ERROR REPORTADO: usecase generator error:
+  detectar_inestabilidad_fisiologica() missing 2 required
+  positional arguments: 'df_vitales' and 'ventana'
+  
+DIAGNÓSTICO:
+El error NO se origina en la función solución sino en el
+generador de casos de uso provisto por el evaluador externo.
+
+ANÁLISIS DEL GENERADOR (líneas relevantes):
+
+  Línea 12 del generador:
+    salida_esperada = detectar_inestabilidad_fisiologica(df, v)
+    
+    Esta línea llama directamente a la función solución DENTRO
+  del cuerpo del generador, antes de que el evaluador automático
+  haya inyectado o importado dicha función en el mismo scope de
+  ejecución. Cuando el evaluador carga el generador de forma
+  aislada (desde el repositorio externo), la función
+  detectar_inestabilidad_fisiologica no existe en ese contexto,
+  resultando en el error:
+    "missing 2 required positional arguments: 'df_vitales'
+     and 'ventana'"
+  que en realidad es un NameError encadenado o un error de
+  scope, no un error de firma de la función.
+
+EVIDENCIA EN LA SOLUCIÓN (answer-0530.py):
+
+  Línea 4 - firma correcta con los parámetros exactos esperados:
+    def detectar_inestabilidad_fisiologica(df_vitales, ventana):
+
+  Al cambiar el generador para que no llame la funcion solucion dentro de si, sino que que calcule el output el mismo:
+  la función acepta exactamente los dos argumentos que el
+  generador pasa en su línea 10:
+    entrada = {"df_vitales": df, "ventana": v}
+  lo que confirma compatibilidad total con el desempaquetado
+  **entrada.
